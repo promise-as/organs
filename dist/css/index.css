@@ -1,0 +1,510 @@
+@charset "UTF-8";
+p {
+  line-height: 1.6;
+}
+
+input[type="text"], select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="text"]::-webkit-input-placeholder, select::-webkit-input-placeholder {
+  color: #999;
+  font-size: inherit;
+}
+
+input[type="text"]:-moz-placeholder, select:-moz-placeholder {
+  color: #999;
+  font-size: inherit;
+}
+
+input[type="text"]::-moz-placeholder, select::-moz-placeholder {
+  color: #999;
+  font-size: inherit;
+}
+
+input[type="text"]:-ms-input-placeholder, select:-ms-input-placeholder {
+  color: #999;
+  font-size: inherit;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+}
+
+input[type="text"], select {
+  border: none;
+  text-indent: 1em;
+}
+
+input, textarea, select {
+  background-color: transparent;
+  font-family: '微软雅黑';
+}
+
+option {
+  text-indent: 1em;
+  font-family: '微软雅黑';
+}
+
+.advantage .tab-content ul li a {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* 文本显示多少行就省略 */
+.head .head-nav ul li a, .tab-head ul li, .teachers .tab-content .tbody .tbody-item .item-detail .detail-title span, .teachers .tab-content .btn a, .right-fixed ul li a {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+.head, .head .head-nav ul, .advantage .tab-content ul, .courses .tab-content .thead ul, .courses .tab-content .tbody ul, .teachers .tab-content, .teachers .tab-content .tbody .tbody-item, .campus .tab-content ul {
+  zoom: 1;
+}
+
+.head:after, .head .head-nav ul:after, .advantage .tab-content ul:after, .courses .tab-content .thead ul:after, .courses .tab-content .tbody ul:after, .teachers .tab-content:after, .teachers .tab-content .tbody .tbody-item:after, .campus .tab-content ul:after {
+  clear: both;
+}
+
+.head:before, .head .head-nav ul:before, .advantage .tab-content ul:before, .courses .tab-content .thead ul:before, .courses .tab-content .tbody ul:before, .teachers .tab-content:before, .teachers .tab-content .tbody .tbody-item:before, .campus .tab-content ul:before, .head:after, .head .head-nav ul:after, .advantage .tab-content ul:after, .courses .tab-content .thead ul:after, .courses .tab-content .tbody ul:after, .teachers .tab-content:after, .teachers .tab-content .tbody .tbody-item:after, .campus .tab-content ul:after {
+  content: "";
+  display: table;
+}
+
+.wrap {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.head {
+  height: 76px;
+}
+
+.head .logo {
+  width: 159px;
+  height: 53px;
+  background: url("../images/logo.png") no-repeat;
+  float: left;
+  margin-top: 9px;
+}
+
+.head .head-nav {
+  float: right;
+}
+
+.head .head-nav ul li {
+  float: left;
+}
+
+.head .head-nav ul li a {
+  line-height: 76px;
+  padding: 0 30px;
+  font-size: 16px;
+}
+
+.head .head-nav ul li a:hover {
+  background-image: linear-gradient(147deg, #ff8559 0%, #ffaf5f 100%);
+  color: #ffffff;
+}
+
+.head .head-nav ul li a.active {
+  background-image: linear-gradient(147deg, #ff8559 0%, #ffaf5f 100%);
+  color: #ffffff;
+}
+
+.banner .swiper-container {
+  height: 405px;
+}
+
+.banner .swiper-container .swiper-wrapper {
+  height: 360px;
+}
+
+.banner .swiper-container .swiper-pagination {
+  bottom: 0;
+}
+
+.banner .swiper-container .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+.banner .swiper-container .swiper-pagination-bullet-active {
+  width: 26px;
+  background-image: linear-gradient(93deg, #ff8559 0%, #ffaf5f 100%);
+  border-radius: 10px;
+}
+
+/* 标题模板 */
+.title-module {
+  text-align: center;
+  font-size: 40px;
+  color: #3e4150;
+  line-height: 65px;
+  background: url("../images/title-bg.png") no-repeat center;
+}
+
+/* 文本模块 */
+.txt-module {
+  font-size: 16px;
+  color: #666666;
+  padding-top: 30px;
+}
+
+/* 表单头部 */
+.tab-head {
+  padding-top: 50px;
+}
+
+.tab-head ul {
+  text-align: center;
+}
+
+.tab-head ul li {
+  margin: 0 10px;
+  font-size: 22px;
+  line-height: 41px;
+  color: #3e4150;
+  padding: 0 20px;
+  border-radius: 4px;
+  border: solid 1px #4c4e5b;
+  cursor: pointer;
+}
+
+.tab-head ul li.active {
+  border: solid 1px #ff8559;
+  color: #ff8559;
+}
+
+/* 优势 */
+.advantage {
+  padding-top: 60px;
+}
+
+.advantage .tab-content {
+  padding-top: 44px;
+  margin-bottom: 27px;
+}
+
+.advantage .tab-content ul {
+  margin-right: -6px;
+}
+
+.advantage .tab-content ul li {
+  float: left;
+  width: 270px;
+  height: 303px;
+  border-radius: 13px;
+  margin-right: 6px;
+  background: url("../images/advantage-bg.png") no-repeat;
+  padding: 39px 27px 42px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
+
+.advantage .tab-content ul li a {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
+  color: #444444;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.advantage .tab-content ul li p {
+  font-size: 16px;
+  color: #666666;
+}
+
+.advantage .consult {
+  height: 162px;
+  background: url("../images/consult.png") no-repeat;
+  padding-top: 69px;
+  padding-left: 394px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.advantage .consult form input {
+  width: 218px;
+  height: 41px;
+  line-height: 41px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-right: 18px;
+}
+
+.advantage .consult form .submit {
+  width: 159px;
+  height: 42px;
+  line-height: 42px;
+  background-color: #ffa969;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* 课程 */
+.courses {
+  padding-top: 46px;
+  margin-bottom: 67px;
+}
+
+.courses .tab-content {
+  padding-top: 43px;
+}
+
+.courses .tab-content .thead ul li {
+  float: left;
+  width: 429px;
+  height: 58px;
+  line-height: 58px;
+  background-color: #3e4150;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.courses .tab-content .thead ul li:nth-of-type(2) {
+  width: 423px;
+  background-color: #c7873b;
+}
+
+.courses .tab-content .thead ul li:nth-of-type(3) {
+  width: 248px;
+  background-color: #ff7a48;
+}
+
+.courses .tab-content .tbody {
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(195, 195, 195, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(195, 195, 195, 0.2);
+  border: solid 1px #eeeeee;
+}
+
+.courses .tab-content .tbody ul li {
+  float: left;
+  width: 427px;
+  height: 52px;
+  line-height: 52px;
+  font-size: 18px;
+  color: #666666;
+  text-align: center;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.courses .tab-content .tbody ul li:nth-of-type(2) {
+  width: 421px;
+}
+
+.courses .tab-content .tbody ul li:nth-of-type(3) {
+  width: 248px;
+}
+
+.courses .tab-content .tbody ul li:last-child {
+  border-right: none;
+}
+
+.courses .tab-content .tbody ul li a {
+  color: #eb6533;
+  text-decoration: underline;
+}
+
+.courses .tab-content .tbody ul:last-child li {
+  border-bottom: none;
+}
+
+/* 师资 */
+.teachers {
+  padding-top: 66px;
+  padding-bottom: 66px;
+  background-color: #f8f8f8;
+}
+
+.teachers .tab-content {
+  height: 364px;
+  background-color: #ffffff;
+  border-radius: 21px;
+  border: solid 1px #eeeeee;
+  margin-top: 46px;
+  padding: 15px 4px 27px 17px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.teachers .tab-content .tbody {
+  float: left;
+}
+
+.teachers .tab-content .tbody .tbody-item img {
+  float: left;
+  margin-right: 20px;
+}
+
+.teachers .tab-content .tbody .tbody-item .item-detail {
+  float: left;
+  width: 355px;
+  color: #3e4150;
+}
+
+.teachers .tab-content .tbody .tbody-item .item-detail .detail-title span {
+  font-size: 32px;
+  line-height: 28px;
+  border-bottom: 7px solid #ff875a;
+}
+
+.teachers .tab-content .tbody .tbody-item .item-detail .txt-module {
+  padding-top: 16px;
+}
+
+.teachers .tab-content .thead {
+  float: right;
+  width: 448px;
+}
+
+.teachers .tab-content .thead li {
+  float: left;
+  width: 99px;
+  height: 116px;
+  margin-right: 13px;
+  margin-bottom: 14px;
+}
+
+.teachers .tab-content .btn {
+  clear: both;
+  width: 273px;
+  height: 41px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(255, 133, 89, 0.26);
+          box-shadow: 0px 8px 16px 0px rgba(255, 133, 89, 0.26);
+  border-image-slice: 1;
+  border-radius: 20px;
+  border: 2px solid #ffaf5f;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 16px auto 0;
+}
+
+.teachers .tab-content .btn a {
+  width: 133px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #ff8559;
+  margin-left: -2px;
+  margin-top: -2px;
+}
+
+.teachers .tab-content .btn a:first-child {
+  background-image: linear-gradient(59deg, #ff8559 0%, #ffaf5f 100%);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(255, 133, 89, 0.26);
+          box-shadow: 0px 8px 16px 0px rgba(255, 133, 89, 0.26);
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+/* 校区 */
+.campus {
+  padding-top: 77px;
+  padding-bottom: 46px;
+}
+
+.campus .tab-content {
+  padding-top: 44px;
+}
+
+.campus .tab-content ul {
+  margin-right: -13px;
+}
+
+.campus .tab-content ul li {
+  float: left;
+  margin-right: 13px;
+  margin-bottom: 18px;
+}
+
+.footer-fixed {
+  height: 185px;
+  background: url("../images/footer-fixed.png") no-repeat center;
+}
+
+.footer-fixed .wrap {
+  padding-top: 106px;
+  padding-left: 408px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.footer-fixed form input {
+  width: 218px;
+  height: 41px;
+  line-height: 41px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-right: 18px;
+}
+
+.footer-fixed form .submit {
+  width: 159px;
+  height: 42px;
+  line-height: 42px;
+  background-image: linear-gradient(59deg, #ff8559 0%, #ffaf5f 100%);
+  font-size: 20px;
+  font-weight: bold;
+  color: #3e4150;
+}
+
+/* 右侧悬浮 */
+.right-fixed {
+  z-index: 100;
+  border-bottom: none;
+  position: fixed;
+  right: 40px;
+  top: 30%;
+  width: 130px;
+  height: 224px;
+  background: url("../images/right-fixed.png") no-repeat;
+  padding-top: 14px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.right-fixed ul li {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  line-height: 38px;
+}
+
+.right-fixed ul li a {
+  color: #ffffff;
+}
+
+.right-fixed ul li.tel {
+  padding-top: 10px;
+}
+
+.right-fixed ul li.to-top {
+  width: 58px;
+  height: 26px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: pointer;
+}
