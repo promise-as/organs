@@ -41,7 +41,7 @@ input[type="submit"] {
   border: none;
 }
 
-input[type='text'], select {
+input[type='text'] {
   border: none;
   text-indent: 1em;
 }
@@ -60,15 +60,6 @@ option {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-
-/* 文本显示多少行就省略 */
-@mixin ells($row) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: $row;
-  -webkit-box-orient: vertical;
 }
 
 %in-b {
@@ -96,13 +87,15 @@ option {
 
 .head{
   @extend %clearfix;
-  height: 76px;
   .logo{
     width: 159px;
     height: 53px;
     background: url("../images/logo.png") no-repeat;
     float: left;
     margin-top: 9px;
+  }
+  .sub-logo{
+    display: none;
   }
   .head-nav{
     float: right;
@@ -136,10 +129,15 @@ option {
 .banner{
   .swiper-container{
     height: 405px;
+    @media (min-width: 1366px) and (max-width:1440px) {
+      height: 300px;
+    }
     .swiper-wrapper{
       height: 360px;
-      img{
-        //height: 100%;
+      a{
+        @extend %in-b;
+        width: 100%;
+        height: 100%;
       }
     }
     .swiper-pagination{
@@ -157,6 +155,9 @@ option {
       border-radius: 10px;
     }
   }
+}
+.banner-wap{
+  display: none;
 }
 
 /* 标题模板 */
@@ -189,7 +190,7 @@ option {
       padding: 0 20px;
       border-radius: 4px;
       border: solid 1px #4c4e5b;
-      cursor: pointer;
+      //cursor: pointer;
       &.active{
         border: solid 1px $txt-color;
         color: $txt-color;
@@ -260,6 +261,9 @@ option {
         color: #ffffff;
       }
     }
+  }
+  .consult-wap{
+    display: none;
   }
 }
 
@@ -341,7 +345,6 @@ option {
   padding-bottom: 66px;
   background-color: #f8f8f8;
   .tab-content{
-    height: 364px;
     background-color: #ffffff;
     border-radius: 21px;
     border: solid 1px #eeeeee;
@@ -351,9 +354,16 @@ option {
     @extend %clearfix;
     .tbody{
       float: left;
+      margin-bottom: 19px;
       .tbody-item{
         @extend %clearfix;
+        display: none;
+        &.active{
+          display: block;
+        }
         img{
+          width: 222px;
+          height: 262px;
           float: left;
           margin-right: 20px;
         }
@@ -378,12 +388,20 @@ option {
     .thead{
       float: right;
       width: 448px;
-      li{
-        float: left;
-        width: 99px;
-        height: 116px;
-        margin-right: 13px;
-        margin-bottom: 14px;
+      ul{
+        @extend %clearfix;
+        li{
+          float: left;
+          width: 99px;
+          height: 116px;
+          margin-right: 13px;
+          margin-bottom: 14px;
+          &.active{
+            border: 1px solid $txt-color;
+            box-sizing: border-box;
+            border-radius: 7px;
+          }
+        }
       }
     }
     .btn{
@@ -396,7 +414,7 @@ option {
       border-radius: 20px;
       border: 2px solid #ffaf5f;
       box-sizing: border-box;
-      margin: 16px auto 0;
+      margin: 0 auto;
       a{
         @extend %in-b;
         width: 133px;
@@ -439,15 +457,34 @@ option {
   }
 }
 
-.footer-fixed{
+/* 底部固定 */
+.footer-fixed-site{
   height: 185px;
+  display: none;
+}
+.footer-fixed{
+  width: 100%;
+  height: 185px;
+  position: fixed;
+  bottom: 0;
   background: url("../images/footer-fixed.png") no-repeat center;
+  display: none;
   .wrap{
-    padding-top: 106px;
+    padding-top: 65px;
     padding-left: 408px;
     box-sizing: border-box;
   }
+  .close{
+    display: block;
+    width: 25px;
+    height: 25px;
+    //border: 1px solid red;
+    float: right;
+    margin-right: -12px;
+    cursor: pointer;
+  }
   form{
+    padding-top: 40px;
     input{
       width: 218px;
       height: 41px;
@@ -474,6 +511,10 @@ option {
   }
 }
 
+.footer-wap{
+  display: none;
+}
+
 /* 右侧悬浮 */
 .right-fixed {
   z-index: 100;
@@ -496,6 +537,9 @@ option {
       a{
         @extend %in-b;
         color: #ffffff;
+        &:hover{
+          color: #fffa78;
+        }
       }
       &.tel{
         padding-top: 10px;
@@ -509,6 +553,573 @@ option {
         right: 0;
         margin: auto;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+/* 遮罩层 */
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 110;
+  display: none;
+}
+
+/* 预约试听弹窗 */
+.appoint-popup{
+  width: 440px;
+  height: 386px;
+  background: url("../images/appoint-popup.png") no-repeat;
+  padding: 20px 20px 16px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 300;
+  display: none;
+  .close{
+    display: block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    right: 15px;
+  }
+  .appoint-title{
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 35px;
+    color: #ff8559;
+    text-align: center;
+  }
+  .appoint-form {
+    padding: 20px 20px 0;
+    font-size: 16px;
+    border-radius: 10px;
+    select{
+      width: 100%;
+      height: 44px;
+      line-height: 44px;
+      border-radius: 6px;
+      border: solid 1px #bbbbbb;
+      outline: none;
+      margin-bottom: 10px;
+      padding: 0 16px;
+      color: #888888;
+      background: url("../images/select-icon.png") no-repeat 331px center;
+      option{
+        color: #000;
+        &:first-child{
+          color: #888888;
+        }
+      }
+    }
+    input {
+      @extend %in-b;
+      width: 100%;
+      height: 44px;
+      line-height: 44px;
+      border: 1px solid #bbbbbb;
+      box-sizing: border-box;
+      border-radius: 3px;
+      outline: none;
+      background-color: #ffffff;
+      margin-bottom: 10px;
+    }
+    .submit{
+      width: 100%;
+      height: 42px;
+      background-image: linear-gradient(59deg,
+          #ff8559 0%,
+          #ffaf5f 100%);
+      border: none;
+      margin-right: 0;
+      color: #ffffff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+  }
+  .hint{
+    font-size: 14px;
+    line-height: 14px;
+    color: #999999;
+    text-align: center;
+    margin-top: 6px;
+    span{
+      color: #fd5d23;
+    }
+  }
+  .hint-wap{
+    display: none;
+  }
+}
+
+@media screen and (max-width:750px) {
+  body, div, p, a, ul, li, span, form, input, h1, h2, h3{
+    box-sizing: border-box;
+  }
+  body{
+    padding-bottom: pr(100px);
+  }
+  /* 文本显示多少行就省略 */
+  @mixin ells($row) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $row;
+    -webkit-box-orient: vertical;
+  }
+  .wrap {
+    width: pr(750px);
+    overflow-x: hidden;
+  }
+  // 垂直居中，两端对齐
+  .space-between {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  // 垂直居中，水平居中
+  .space-around {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  // 去除前后伪类
+  %clearclass {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+  /* 右侧悬浮 */
+  .right-fixed{
+    display: none;
+  }
+  .head{
+    .logo{
+      width: pr(177px);
+      height: pr(59px);
+      background: url("../images/logo-wap.png") no-repeat;
+      background-size: 100% 100%;
+      margin-top: pr(20px);
+      margin-left: pr(26px);
+      margin-bottom: pr(17px);
+    }
+    .sub-logo{
+      display: inline-block;
+      width: pr(170px);
+      height: pr(45px);
+      float: left;
+      margin-top: pr(29px);
+      margin-left: pr(27px);
+    }
+    .head-nav{
+      clear: both;
+      float: none;
+      background-color: #f5f5f5;
+      ul{
+        @extend %clearclass;
+        overflow-x: scroll;
+        white-space: nowrap;
+        li{
+          float: none;
+          display: inline-block;
+          a{
+            height: pr(70px);
+            line-height: pr(70px);
+            padding: 0 pr(30px);
+            font-size: pr(26px);
+          }
+        }
+      }
+    }
+  }
+  .banner{
+    display: none;
+  }
+  .banner-wap{
+    display: block;
+    .swiper-container{
+      height: pr(506px);
+      .swiper-wrapper{
+        //height: 360px;
+        a{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .swiper-pagination{
+        bottom: 0;
+      }
+      .swiper-pagination-bullet{
+        width: pr(15px);
+        height: pr(15px);
+      }
+      .swiper-pagination-bullet-active{
+        width: pr(38px);
+        background-image: linear-gradient(93deg,
+            #ff8559 0%,
+            #ffaf5f 100%);
+        border-radius: pr(19px);
+      }
+    }
+  }
+  /* 标题模板 */
+  .title-module{
+    width: pr(582px);
+    font-size: pr(40px);
+    line-height: pr(56px);
+    background-size: 100%;
+    margin: 0 auto;
+  }
+  /* 文本模块 */
+  .txt-module{
+    font-size: pr(26px);
+    color: #666666;
+    padding-top: pr(30px);
+    line-height: pr(44px);
+  }
+  /* 表单头部 */
+  .tab-head{
+    padding-top: pr(50px);
+    ul{
+      margin: 0 pr(-16px);
+      li{
+        margin: 0 pr(8px);
+        font-size: pr(28px);
+        line-height: pr(63px);
+        padding: 0 pr(20px);
+        border-radius: pr(4px);
+        &.active{
+          border: solid 1px $txt-color;
+          color: $txt-color;
+        }
+      }
+    }
+  }
+  /* 优势 */
+  .advantage{
+    padding: pr(46px) pr(30px) pr(40px);
+    .tab-content{
+      padding-top: pr(50px);
+      margin-bottom: 0;
+      ul{
+        margin-right: pr(-25px);
+        li{
+          float: left;
+          width: pr(331px);
+          height: pr(382px);
+          border-radius: pr(13px);
+          margin-right: pr(25px);
+          margin-bottom: pr(21px);
+          padding: pr(22px);
+          box-sizing: border-box;
+          text-align: center;
+          background-size: 100% 100%;
+          img{
+            width: pr(74px);
+            height: pr(74px);
+          }
+          a{
+            font-size: pr(28px);
+            line-height: pr(30px);
+            padding-top: pr(10px);
+            margin-bottom: pr(10px);
+          }
+          p{
+            font-size: pr(24px);
+          }
+        }
+      }
+    }
+    .consult{
+      display: none;
+    }
+    .consult-wap{
+      display: block;
+      height: pr(484px);
+      background: url("../images/consult-wap.png") no-repeat;
+      background-size: 100% 100%;
+      padding: pr(160px) pr(20px) pr(24px);
+      .sign-in{
+        height: pr(300px);
+        background-color: #ffffff;
+        border-radius: pr(6px);
+        padding: pr(28px) pr(29px);
+        input{
+          width: 100%;
+          height: pr(71px);
+          line-height: pr(71px);
+          background-color: #f1f1f1;
+          border-radius: pr(6px);
+          margin-bottom: pr(15px);
+          font-size: pr(28px);
+        }
+        .submit{
+          height: pr(72px);
+          line-height: pr(72px);
+          background-color: #ffa969;
+          color: #ffffff;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  /* 课程 */
+  .courses{
+    padding: pr(46px) pr(30px) pr(40px);
+    margin-bottom: pr(45px);
+    .tab-content{
+      padding-top: pr(50px);
+      .thead{
+        ul{
+          li{
+            width: pr(268px);
+            height: pr(70px);
+            line-height: pr(70px);
+            border-top-left-radius: pr(13px);
+            border-top-right-radius: pr(13px);
+            font-size: pr(28px);
+            &:nth-of-type(2){
+              width: pr(265px);
+            }
+            &:nth-of-type(3){
+              width: pr(155px);
+            }
+          }
+        }
+      }
+      .tbody{
+        box-shadow: 0px pr(8px) pr(16px) 0px
+        rgba(195, 195, 195, 0.2);
+        ul{
+          li{
+            width: pr(266px);
+            height: pr(88px);
+            line-height: pr(32px);
+            font-size: pr(24px);
+            @extend .space-around;
+            &:nth-of-type(1){
+              padding: 0 pr(20px);
+            }
+            &:nth-of-type(2){
+              width: pr(263px);
+            }
+            &:nth-of-type(3){
+              width: pr(155px);
+            }
+          }
+        }
+      }
+    }
+  }
+  /* 师资 */
+  .teachers{
+    padding-top: pr(50px);
+    padding-bottom: pr(50px);
+    .wrap{
+      padding: 0 pr(30px);
+    }
+    .tab-content{
+      border-radius: pr(21px);
+      margin-top: pr(49px);
+      padding: pr(26px) pr(10px) pr(32px) pr(20px);
+      .tbody{
+        float: none;
+        margin-bottom: pr(25px);
+        .tbody-item{
+          img{
+            float: left;
+            margin-right: pr(20px);
+            width: pr(240px);
+            height: pr(290px);
+          }
+          .item-detail{
+            float: left;
+            width: pr(390px);
+            .detail-title{
+              span{
+                font-size: pr(32px);
+                line-height: pr(30px);
+                border-bottom: pr(7px) solid #ff875a;
+              }
+            }
+            .txt-module{
+              padding-top: pr(20px);
+              line-height: pr(34px);
+            }
+          }
+        }
+      }
+      .thead{
+        float: none;
+        width: 100%;
+        ul{
+          margin-right: pr(-19px);
+          li{
+            float: left;
+            width: pr(147px);
+            height: pr(172px);
+            margin-right: pr(19px);
+            margin-bottom: pr(22px);
+          }
+        }
+      }
+      .btn{
+        width: pr(404px);
+        height: pr(60px);
+        box-shadow: 0px 8px 16px 0px
+        rgba(255, 133, 89, 0.26);
+        border-radius: pr(30px);
+        border: pr(2px) solid #ffaf5f;
+        margin: pr(16px) auto 0;
+        a{
+          width: pr(197px);
+          height: pr(60px);
+          line-height: pr(60px);
+          font-size: pr(24px);
+          margin-left: pr(-2px);
+          margin-top: pr(-2px);
+          &:first-child{
+            background-image: linear-gradient(59deg,
+                #ff8559 0%,
+                #ffaf5f 100%);
+            box-shadow: 0px pr(8px) pr(16px) 0px
+            rgba(255, 133, 89, 0.26);
+            border-radius: pr(30px);
+          }
+        }
+      }
+    }
+  }
+  /* 校区 */
+  .campus{
+    padding: pr(73px) pr(30px) pr(37px);
+    .tab-content{
+      padding-top: pr(54px);
+      ul{
+        margin-right: pr(-15px);
+        li{
+          float: left;
+          width: pr(336px);
+          height: pr(227px);
+          margin-right: pr(15px);
+          margin-bottom: pr(21px);
+        }
+      }
+    }
+  }
+  .footer-fixed, .footer-fixed-site{
+    display: none;
+  }
+  .footer-wap{
+    display: block;
+    width: 100%;
+    height: pr(120px);
+    background-color: #f0f1f5;
+
+    color: #888888;
+    text-align: center;
+    font-size: pr(20px);
+    line-height: pr(20px);
+    padding-top: pr(20px);
+    p{
+      margin-bottom: pr(10px);
+    }
+  }
+  .footer-bar{
+    width: pr(750px);
+    height: pr(96px);
+    background: url('../images/footer-bar.png') no-repeat #fff;
+    background-size: 100% 100%;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    a{
+      width: 33.33%;
+      height: 100%;
+      cursor: pointer;
+    }
+  }
+  /* 遮罩层 */
+  .mask{
+    //display: block;
+  }
+
+  /* 预约试听弹窗 */
+  .appoint-popup{
+    width: pr(646px);
+    height: pr(616px);
+    background-size: 100% 100%;
+    padding: pr(30px) 0 pr(10px);
+    //display: block;
+    .close{
+      width: pr(31px);
+      height: pr(31px);
+      top: pr(22px);
+      right: pr(20px);
+    }
+    .appoint-title{
+      font-size: pr(36px);
+      line-height: pr(36px);
+    }
+    .appoint-form {
+      padding: pr(20px) pr(50px) pr(10px);
+      border-radius: 10px;
+      font-size: pr(26px);
+      select{
+        width: 100%;
+        height: pr(69px);
+        line-height: pr(69px);
+        border-radius: pr(6px);
+        margin-bottom: pr(16px);
+        padding: 0 pr(27px);
+        background: url("../images/select-icon.png") no-repeat pr(489px) center;
+        option{
+          color: #000;
+          &:first-child{
+            color: #888888;
+          }
+        }
+      }
+      input {
+        height: pr(69px);
+        line-height: pr(69px);
+        border-radius: 3px;
+        margin-bottom: 10px;
+      }
+      .submit{
+        height: pr(69px);
+        line-height: pr(69px);
+      }
+
+    }
+    .hint{
+      display: none;
+    }
+    .hint-wap{
+      display: block;
+      font-size: pr(22px);
+      line-height: pr(24px);
+      color: #444444;
+      margin-top: 0;
+      text-align: center;
+      span{
+        color: #fd5d23;
       }
     }
   }

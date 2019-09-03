@@ -37,7 +37,7 @@ input[type="submit"] {
   border: none;
 }
 
-input[type="text"], select {
+input[type='text'] {
   border: none;
   text-indent: 1em;
 }
@@ -58,22 +58,21 @@ option {
   overflow: hidden;
 }
 
-/* 文本显示多少行就省略 */
-.head .head-nav ul li a, .tab-head ul li, .teachers .tab-content .tbody .tbody-item .item-detail .detail-title span, .teachers .tab-content .btn a, .right-fixed ul li a {
+.head .head-nav ul li a, .banner .swiper-container .swiper-wrapper a, .tab-head ul li, .teachers .tab-content .tbody .tbody-item .item-detail .detail-title span, .teachers .tab-content .btn a, .right-fixed ul li a, .appoint-popup .appoint-form input {
   display: inline-block;
   *zoom: 1;
   *display: inline;
 }
 
-.head, .head .head-nav ul, .advantage .tab-content ul, .courses .tab-content .thead ul, .courses .tab-content .tbody ul, .teachers .tab-content, .teachers .tab-content .tbody .tbody-item, .campus .tab-content ul {
+.head, .head .head-nav ul, .advantage .tab-content ul, .courses .tab-content .thead ul, .courses .tab-content .tbody ul, .teachers .tab-content, .teachers .tab-content .tbody .tbody-item, .teachers .tab-content .thead ul, .campus .tab-content ul {
   zoom: 1;
 }
 
-.head:after, .head .head-nav ul:after, .advantage .tab-content ul:after, .courses .tab-content .thead ul:after, .courses .tab-content .tbody ul:after, .teachers .tab-content:after, .teachers .tab-content .tbody .tbody-item:after, .campus .tab-content ul:after {
+.head:after, .head .head-nav ul:after, .advantage .tab-content ul:after, .courses .tab-content .thead ul:after, .courses .tab-content .tbody ul:after, .teachers .tab-content:after, .teachers .tab-content .tbody .tbody-item:after, .teachers .tab-content .thead ul:after, .campus .tab-content ul:after {
   clear: both;
 }
 
-.head:before, .head .head-nav ul:before, .advantage .tab-content ul:before, .courses .tab-content .thead ul:before, .courses .tab-content .tbody ul:before, .teachers .tab-content:before, .teachers .tab-content .tbody .tbody-item:before, .campus .tab-content ul:before, .head:after, .head .head-nav ul:after, .advantage .tab-content ul:after, .courses .tab-content .thead ul:after, .courses .tab-content .tbody ul:after, .teachers .tab-content:after, .teachers .tab-content .tbody .tbody-item:after, .campus .tab-content ul:after {
+.head:before, .head .head-nav ul:before, .advantage .tab-content ul:before, .courses .tab-content .thead ul:before, .courses .tab-content .tbody ul:before, .teachers .tab-content:before, .teachers .tab-content .tbody .tbody-item:before, .teachers .tab-content .thead ul:before, .campus .tab-content ul:before, .head:after, .head .head-nav ul:after, .advantage .tab-content ul:after, .courses .tab-content .thead ul:after, .courses .tab-content .tbody ul:after, .teachers .tab-content:after, .teachers .tab-content .tbody .tbody-item:after, .teachers .tab-content .thead ul:after, .campus .tab-content ul:after {
   content: "";
   display: table;
 }
@@ -83,16 +82,16 @@ option {
   margin: 0 auto;
 }
 
-.head {
-  height: 76px;
-}
-
 .head .logo {
   width: 159px;
   height: 53px;
   background: url("../images/logo.png") no-repeat;
   float: left;
   margin-top: 9px;
+}
+
+.head .sub-logo {
+  display: none;
 }
 
 .head .head-nav {
@@ -123,8 +122,19 @@ option {
   height: 405px;
 }
 
+@media (min-width: 1366px) and (max-width: 1440px) {
+  .banner .swiper-container {
+    height: 300px;
+  }
+}
+
 .banner .swiper-container .swiper-wrapper {
   height: 360px;
+}
+
+.banner .swiper-container .swiper-wrapper a {
+  width: 100%;
+  height: 100%;
 }
 
 .banner .swiper-container .swiper-pagination {
@@ -140,6 +150,10 @@ option {
   width: 26px;
   background-image: linear-gradient(93deg, #ff8559 0%, #ffaf5f 100%);
   border-radius: 10px;
+}
+
+.banner-wap {
+  display: none;
 }
 
 /* 标题模板 */
@@ -175,7 +189,6 @@ option {
   padding: 0 20px;
   border-radius: 4px;
   border: solid 1px #4c4e5b;
-  cursor: pointer;
 }
 
 .tab-head ul li.active {
@@ -252,6 +265,10 @@ option {
   font-size: 20px;
   font-weight: bold;
   color: #ffffff;
+}
+
+.advantage .consult-wap {
+  display: none;
 }
 
 /* 课程 */
@@ -334,7 +351,6 @@ option {
 }
 
 .teachers .tab-content {
-  height: 364px;
   background-color: #ffffff;
   border-radius: 21px;
   border: solid 1px #eeeeee;
@@ -346,9 +362,20 @@ option {
 
 .teachers .tab-content .tbody {
   float: left;
+  margin-bottom: 19px;
+}
+
+.teachers .tab-content .tbody .tbody-item {
+  display: none;
+}
+
+.teachers .tab-content .tbody .tbody-item.active {
+  display: block;
 }
 
 .teachers .tab-content .tbody .tbody-item img {
+  width: 222px;
+  height: 262px;
   float: left;
   margin-right: 20px;
 }
@@ -374,12 +401,19 @@ option {
   width: 448px;
 }
 
-.teachers .tab-content .thead li {
+.teachers .tab-content .thead ul li {
   float: left;
   width: 99px;
   height: 116px;
   margin-right: 13px;
   margin-bottom: 14px;
+}
+
+.teachers .tab-content .thead ul li.active {
+  border: 1px solid #ff8559;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 7px;
 }
 
 .teachers .tab-content .btn {
@@ -393,7 +427,7 @@ option {
   border: 2px solid #ffaf5f;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin: 16px auto 0;
+  margin: 0 auto;
 }
 
 .teachers .tab-content .btn a {
@@ -435,16 +469,39 @@ option {
   margin-bottom: 18px;
 }
 
-.footer-fixed {
+/* 底部固定 */
+.footer-fixed-site {
   height: 185px;
+  display: none;
+}
+
+.footer-fixed {
+  width: 100%;
+  height: 185px;
+  position: fixed;
+  bottom: 0;
   background: url("../images/footer-fixed.png") no-repeat center;
+  display: none;
 }
 
 .footer-fixed .wrap {
-  padding-top: 106px;
+  padding-top: 65px;
   padding-left: 408px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.footer-fixed .close {
+  display: block;
+  width: 25px;
+  height: 25px;
+  float: right;
+  margin-right: -12px;
+  cursor: pointer;
+}
+
+.footer-fixed form {
+  padding-top: 40px;
 }
 
 .footer-fixed form input {
@@ -465,6 +522,10 @@ option {
   font-size: 20px;
   font-weight: bold;
   color: #3e4150;
+}
+
+.footer-wap {
+  display: none;
 }
 
 /* 右侧悬浮 */
@@ -494,6 +555,10 @@ option {
   color: #ffffff;
 }
 
+.right-fixed ul li a:hover {
+  color: #fffa78;
+}
+
 .right-fixed ul li.tel {
   padding-top: 10px;
 }
@@ -507,4 +572,556 @@ option {
   right: 0;
   margin: auto;
   cursor: pointer;
+}
+
+/* 遮罩层 */
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 110;
+  display: none;
+}
+
+/* 预约试听弹窗 */
+.appoint-popup {
+  width: 440px;
+  height: 386px;
+  background: url("../images/appoint-popup.png") no-repeat;
+  padding: 20px 20px 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 300;
+  display: none;
+}
+
+.appoint-popup .close {
+  display: block;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 15px;
+}
+
+.appoint-popup .appoint-title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 35px;
+  color: #ff8559;
+  text-align: center;
+}
+
+.appoint-popup .appoint-form {
+  padding: 20px 20px 0;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.appoint-popup .appoint-form select {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 6px;
+  border: solid 1px #bbbbbb;
+  outline: none;
+  margin-bottom: 10px;
+  padding: 0 16px;
+  color: #888888;
+  background: url("../images/select-icon.png") no-repeat 331px center;
+}
+
+.appoint-popup .appoint-form select option {
+  color: #000;
+}
+
+.appoint-popup .appoint-form select option:first-child {
+  color: #888888;
+}
+
+.appoint-popup .appoint-form input {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  border: 1px solid #bbbbbb;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 3px;
+  outline: none;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.appoint-popup .appoint-form .submit {
+  width: 100%;
+  height: 42px;
+  background-image: linear-gradient(59deg, #ff8559 0%, #ffaf5f 100%);
+  border: none;
+  margin-right: 0;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.appoint-popup .hint {
+  font-size: 14px;
+  line-height: 14px;
+  color: #999999;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.appoint-popup .hint span {
+  color: #fd5d23;
+}
+
+.appoint-popup .hint-wap {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  body, div, p, a, ul, li, span, form, input, h1, h2, h3 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  body {
+    padding-bottom: 1.33333rem;
+  }
+  /* 文本显示多少行就省略 */
+  .wrap {
+    width: 10rem;
+    overflow-x: hidden;
+  }
+  .space-between {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .space-around, .courses .tab-content .tbody ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .head .head-nav ul:before, .head .head-nav ul:after {
+    display: none;
+  }
+  /* 右侧悬浮 */
+  .right-fixed {
+    display: none;
+  }
+  .head .logo {
+    width: 2.36rem;
+    height: 0.78667rem;
+    background: url("../images/logo-wap.png") no-repeat;
+    background-size: 100% 100%;
+    margin-top: 0.26667rem;
+    margin-left: 0.34667rem;
+    margin-bottom: 0.22667rem;
+  }
+  .head .sub-logo {
+    display: inline-block;
+    width: 2.26667rem;
+    height: 0.6rem;
+    float: left;
+    margin-top: 0.38667rem;
+    margin-left: 0.36rem;
+  }
+  .head .head-nav {
+    clear: both;
+    float: none;
+    background-color: #f5f5f5;
+  }
+  .head .head-nav ul {
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+  .head .head-nav ul li {
+    float: none;
+    display: inline-block;
+  }
+  .head .head-nav ul li a {
+    height: 0.93333rem;
+    line-height: 0.93333rem;
+    padding: 0 0.4rem;
+    font-size: 0.34667rem;
+  }
+  .banner {
+    display: none;
+  }
+  .banner-wap {
+    display: block;
+  }
+  .banner-wap .swiper-container {
+    height: 6.74667rem;
+  }
+  .banner-wap .swiper-container .swiper-wrapper a {
+    width: 100%;
+    height: 100%;
+  }
+  .banner-wap .swiper-container .swiper-pagination {
+    bottom: 0;
+  }
+  .banner-wap .swiper-container .swiper-pagination-bullet {
+    width: 0.2rem;
+    height: 0.2rem;
+  }
+  .banner-wap .swiper-container .swiper-pagination-bullet-active {
+    width: 0.50667rem;
+    background-image: linear-gradient(93deg, #ff8559 0%, #ffaf5f 100%);
+    border-radius: 0.25333rem;
+  }
+  /* 标题模板 */
+  .title-module {
+    width: 7.76rem;
+    font-size: 0.53333rem;
+    line-height: 0.74667rem;
+    background-size: 100%;
+    margin: 0 auto;
+  }
+  /* 文本模块 */
+  .txt-module {
+    font-size: 0.34667rem;
+    color: #666666;
+    padding-top: 0.4rem;
+    line-height: 0.58667rem;
+  }
+  /* 表单头部 */
+  .tab-head {
+    padding-top: 0.66667rem;
+  }
+  .tab-head ul {
+    margin: 0 -0.21333rem;
+  }
+  .tab-head ul li {
+    margin: 0 0.10667rem;
+    font-size: 0.37333rem;
+    line-height: 0.84rem;
+    padding: 0 0.26667rem;
+    border-radius: 0.05333rem;
+  }
+  .tab-head ul li.active {
+    border: solid 1px #ff8559;
+    color: #ff8559;
+  }
+  /* 优势 */
+  .advantage {
+    padding: 0.61333rem 0.4rem 0.53333rem;
+  }
+  .advantage .tab-content {
+    padding-top: 0.66667rem;
+    margin-bottom: 0;
+  }
+  .advantage .tab-content ul {
+    margin-right: -0.33333rem;
+  }
+  .advantage .tab-content ul li {
+    float: left;
+    width: 4.41333rem;
+    height: 5.09333rem;
+    border-radius: 0.17333rem;
+    margin-right: 0.33333rem;
+    margin-bottom: 0.28rem;
+    padding: 0.29333rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    text-align: center;
+    background-size: 100% 100%;
+  }
+  .advantage .tab-content ul li img {
+    width: 0.98667rem;
+    height: 0.98667rem;
+  }
+  .advantage .tab-content ul li a {
+    font-size: 0.37333rem;
+    line-height: 0.4rem;
+    padding-top: 0.13333rem;
+    margin-bottom: 0.13333rem;
+  }
+  .advantage .tab-content ul li p {
+    font-size: 0.32rem;
+  }
+  .advantage .consult {
+    display: none;
+  }
+  .advantage .consult-wap {
+    display: block;
+    height: 6.45333rem;
+    background: url("../images/consult-wap.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 2.13333rem 0.26667rem 0.32rem;
+  }
+  .advantage .consult-wap .sign-in {
+    height: 4rem;
+    background-color: #ffffff;
+    border-radius: 0.08rem;
+    padding: 0.37333rem 0.38667rem;
+  }
+  .advantage .consult-wap .sign-in input {
+    width: 100%;
+    height: 0.94667rem;
+    line-height: 0.94667rem;
+    background-color: #f1f1f1;
+    border-radius: 0.08rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.37333rem;
+  }
+  .advantage .consult-wap .sign-in .submit {
+    height: 0.96rem;
+    line-height: 0.96rem;
+    background-color: #ffa969;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  /* 课程 */
+  .courses {
+    padding: 0.61333rem 0.4rem 0.53333rem;
+    margin-bottom: 0.6rem;
+  }
+  .courses .tab-content {
+    padding-top: 0.66667rem;
+  }
+  .courses .tab-content .thead ul li {
+    width: 3.57333rem;
+    height: 0.93333rem;
+    line-height: 0.93333rem;
+    border-top-left-radius: 0.17333rem;
+    border-top-right-radius: 0.17333rem;
+    font-size: 0.37333rem;
+  }
+  .courses .tab-content .thead ul li:nth-of-type(2) {
+    width: 3.53333rem;
+  }
+  .courses .tab-content .thead ul li:nth-of-type(3) {
+    width: 2.06667rem;
+  }
+  .courses .tab-content .tbody {
+    -webkit-box-shadow: 0px 0.10667rem 0.21333rem 0px rgba(195, 195, 195, 0.2);
+            box-shadow: 0px 0.10667rem 0.21333rem 0px rgba(195, 195, 195, 0.2);
+  }
+  .courses .tab-content .tbody ul li {
+    width: 3.54667rem;
+    height: 1.17333rem;
+    line-height: 0.42667rem;
+    font-size: 0.32rem;
+  }
+  .courses .tab-content .tbody ul li:nth-of-type(1) {
+    padding: 0 0.26667rem;
+  }
+  .courses .tab-content .tbody ul li:nth-of-type(2) {
+    width: 3.50667rem;
+  }
+  .courses .tab-content .tbody ul li:nth-of-type(3) {
+    width: 2.06667rem;
+  }
+  /* 师资 */
+  .teachers {
+    padding-top: 0.66667rem;
+    padding-bottom: 0.66667rem;
+  }
+  .teachers .wrap {
+    padding: 0 0.4rem;
+  }
+  .teachers .tab-content {
+    border-radius: 0.28rem;
+    margin-top: 0.65333rem;
+    padding: 0.34667rem 0.13333rem 0.42667rem 0.26667rem;
+  }
+  .teachers .tab-content .tbody {
+    float: none;
+    margin-bottom: 0.33333rem;
+  }
+  .teachers .tab-content .tbody .tbody-item img {
+    float: left;
+    margin-right: 0.26667rem;
+    width: 3.2rem;
+    height: 3.86667rem;
+  }
+  .teachers .tab-content .tbody .tbody-item .item-detail {
+    float: left;
+    width: 5.2rem;
+  }
+  .teachers .tab-content .tbody .tbody-item .item-detail .detail-title span {
+    font-size: 0.42667rem;
+    line-height: 0.4rem;
+    border-bottom: 0.09333rem solid #ff875a;
+  }
+  .teachers .tab-content .tbody .tbody-item .item-detail .txt-module {
+    padding-top: 0.26667rem;
+    line-height: 0.45333rem;
+  }
+  .teachers .tab-content .thead {
+    float: none;
+    width: 100%;
+  }
+  .teachers .tab-content .thead ul {
+    margin-right: -0.25333rem;
+  }
+  .teachers .tab-content .thead ul li {
+    float: left;
+    width: 1.96rem;
+    height: 2.29333rem;
+    margin-right: 0.25333rem;
+    margin-bottom: 0.29333rem;
+  }
+  .teachers .tab-content .btn {
+    width: 5.38667rem;
+    height: 0.8rem;
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(255, 133, 89, 0.26);
+            box-shadow: 0px 8px 16px 0px rgba(255, 133, 89, 0.26);
+    border-radius: 0.4rem;
+    border: 0.02667rem solid #ffaf5f;
+    margin: 0.21333rem auto 0;
+  }
+  .teachers .tab-content .btn a {
+    width: 2.62667rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0.32rem;
+    margin-left: -0.02667rem;
+    margin-top: -0.02667rem;
+  }
+  .teachers .tab-content .btn a:first-child {
+    background-image: linear-gradient(59deg, #ff8559 0%, #ffaf5f 100%);
+    -webkit-box-shadow: 0px 0.10667rem 0.21333rem 0px rgba(255, 133, 89, 0.26);
+            box-shadow: 0px 0.10667rem 0.21333rem 0px rgba(255, 133, 89, 0.26);
+    border-radius: 0.4rem;
+  }
+  /* 校区 */
+  .campus {
+    padding: 0.97333rem 0.4rem 0.49333rem;
+  }
+  .campus .tab-content {
+    padding-top: 0.72rem;
+  }
+  .campus .tab-content ul {
+    margin-right: -0.2rem;
+  }
+  .campus .tab-content ul li {
+    float: left;
+    width: 4.48rem;
+    height: 3.02667rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.28rem;
+  }
+  .footer-fixed, .footer-fixed-site {
+    display: none;
+  }
+  .footer-wap {
+    display: block;
+    width: 100%;
+    height: 1.6rem;
+    background-color: #f0f1f5;
+    color: #888888;
+    text-align: center;
+    font-size: 0.26667rem;
+    line-height: 0.26667rem;
+    padding-top: 0.26667rem;
+  }
+  .footer-wap p {
+    margin-bottom: 0.13333rem;
+  }
+  .footer-bar {
+    width: 10rem;
+    height: 1.28rem;
+    background: url("../images/footer-bar.png") no-repeat #fff;
+    background-size: 100% 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+  }
+  .footer-bar a {
+    width: 33.33%;
+    height: 100%;
+    cursor: pointer;
+  }
+  /* 遮罩层 */
+  /* 预约试听弹窗 */
+  .appoint-popup {
+    width: 8.61333rem;
+    height: 8.21333rem;
+    background-size: 100% 100%;
+    padding: 0.4rem 0 0.13333rem;
+  }
+  .appoint-popup .close {
+    width: 0.41333rem;
+    height: 0.41333rem;
+    top: 0.29333rem;
+    right: 0.26667rem;
+  }
+  .appoint-popup .appoint-title {
+    font-size: 0.48rem;
+    line-height: 0.48rem;
+  }
+  .appoint-popup .appoint-form {
+    padding: 0.26667rem 0.66667rem 0.13333rem;
+    border-radius: 10px;
+    font-size: 0.34667rem;
+  }
+  .appoint-popup .appoint-form select {
+    width: 100%;
+    height: 0.92rem;
+    line-height: 0.92rem;
+    border-radius: 0.08rem;
+    margin-bottom: 0.21333rem;
+    padding: 0 0.36rem;
+    background: url("../images/select-icon.png") no-repeat 6.52rem center;
+  }
+  .appoint-popup .appoint-form select option {
+    color: #000;
+  }
+  .appoint-popup .appoint-form select option:first-child {
+    color: #888888;
+  }
+  .appoint-popup .appoint-form input {
+    height: 0.92rem;
+    line-height: 0.92rem;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  .appoint-popup .appoint-form .submit {
+    height: 0.92rem;
+    line-height: 0.92rem;
+  }
+  .appoint-popup .hint {
+    display: none;
+  }
+  .appoint-popup .hint-wap {
+    display: block;
+    font-size: 0.29333rem;
+    line-height: 0.32rem;
+    color: #444444;
+    margin-top: 0;
+    text-align: center;
+  }
+  .appoint-popup .hint-wap span {
+    color: #fd5d23;
+  }
 }
