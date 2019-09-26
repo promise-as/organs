@@ -90,7 +90,7 @@ option {
   .logo{
     width: 159px;
     height: 53px;
-    background: url("../images/logo.png") no-repeat;
+    background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/logo.png") no-repeat;
     float: left;
     margin-top: 9px;
   }
@@ -166,7 +166,7 @@ option {
   font-size: 40px;
   color: #3e4150;
   line-height: 65px;
-  background: url("../images/title-bg.png") no-repeat center;
+  background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/title-bg.png") no-repeat center;
 }
 
 /* 文本模块 */
@@ -214,7 +214,7 @@ option {
         height: 303px;
         border-radius: 13px;
         margin-right: 6px;
-        background: url("../images/advantage-bg.png") no-repeat;
+        background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/advantage-bg.png") no-repeat;
         padding: 39px 27px 42px;
         box-sizing: border-box;
         text-align: center;
@@ -237,7 +237,7 @@ option {
   }
   .consult{
     height: 162px;
-    background: url("../images/consult.png") no-repeat;
+    background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/consult.png") no-repeat;
     padding-top: 69px;
     padding-left: 394px;
     box-sizing: border-box;
@@ -396,6 +396,10 @@ option {
           height: 116px;
           margin-right: 13px;
           margin-bottom: 14px;
+          img{
+            width: 100%;
+            height: 100%;
+          }
           &.active{
             border: 1px solid $txt-color;
             box-sizing: border-box;
@@ -447,9 +451,10 @@ option {
     padding-top: 44px;
     ul{
       @extend %clearfix;
-      margin-right: -13px;
+      margin-right: -38px;
+      text-align: center;
       li{
-        float: left;
+        @extend %in-b;
         margin-right: 13px;
         margin-bottom: 18px;
       }
@@ -467,7 +472,7 @@ option {
   height: 185px;
   position: fixed;
   bottom: 0;
-  background: url("../images/footer-fixed.png") no-repeat center;
+  background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/footer-fixed.png") no-repeat center;
   display: none;
   .wrap{
     padding-top: 65px;
@@ -524,7 +529,7 @@ option {
   top: 30%;
   width: 130px;
   height: 224px;
-  background: url("../images/right-fixed.png") no-repeat;
+  background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/right-fixed.png") no-repeat;
   padding-top: 14px;
   box-sizing: border-box;
   ul{
@@ -574,7 +579,7 @@ option {
 .appoint-popup{
   width: 440px;
   height: 386px;
-  background: url("../images/appoint-popup.png") no-repeat;
+  background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/appoint-popup.png") no-repeat;
   padding: 20px 20px 16px;
   box-sizing: border-box;
   position: fixed;
@@ -615,7 +620,7 @@ option {
       margin-bottom: 10px;
       padding: 0 16px;
       color: #888888;
-      background: url("../images/select-icon.png") no-repeat 331px center;
+      background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/select-icon.png") no-repeat 331px center;
       option{
         color: #000;
         &:first-child{
@@ -712,7 +717,7 @@ option {
     .logo{
       width: pr(177px);
       height: pr(59px);
-      background: url("../images/logo-wap.png") no-repeat;
+      background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/logo-wap.png") no-repeat;
       background-size: 100% 100%;
       margin-top: pr(20px);
       margin-left: pr(26px);
@@ -851,7 +856,7 @@ option {
     .consult-wap{
       display: block;
       height: pr(484px);
-      background: url("../images/consult-wap.png") no-repeat;
+      background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/consult-wap.png") no-repeat;
       background-size: 100% 100%;
       padding: pr(160px) pr(20px) pr(24px);
       .sign-in{
@@ -1043,7 +1048,7 @@ option {
   .footer-bar{
     width: pr(750px);
     height: pr(96px);
-    background: url('../images/footer-bar.png') no-repeat #fff;
+    background: url('https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/footer-bar.png') no-repeat #fff;
     background-size: 100% 100%;
     display: flex;
     position: fixed;
@@ -1088,7 +1093,7 @@ option {
         border-radius: pr(6px);
         margin-bottom: pr(16px);
         padding: 0 pr(27px);
-        background: url("../images/select-icon.png") no-repeat pr(489px) center;
+        background: url("https://img.thea.cn/public/platform/thea/201909/hbj/organs/images/select-icon.png") no-repeat pr(489px) center;
         option{
           color: #000;
           &:first-child{
